@@ -18,7 +18,7 @@ spec:
         kind: ImageStreamTag
         name: "jws-example:latest"
   - type: ConfigChange
-  replicas: 1
+  replicas: 2
   selector:
     name: "jws-example"
   template:
@@ -44,6 +44,9 @@ spec:
           httpGet:
             path: "/health"
             port: 8080
+        env:
+        - name: KUBERNETES_NAMESPACE
+          value: "jbosswebserver" 
         resources:
           limits:
             memory: "512Mi"
