@@ -1,0 +1,38 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: "jws-example"
+  annotations:
+    description: Defines how to build the application
+spec:
+  source:
+    type: Git
+    git:
+      uri: "https://github.com/jfclere/demo-webapp.git"
+      ref: 
+    contextDir: 
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: DockerImage
+        #name: registry.redhat.io/ubi8/jws-10:latest
+        name: quay.io/jfclere/jws-image:5.4
+      #env:
+      #- name: NPM_MIRROR
+      #  value: 
+  output:
+    to:
+      kind: ImageStreamTag
+      name: jws-example:latest
+  triggers:
+  - type: ImageChange
+  - type: ConfigChange
+  - type: GitHub
+    github:
+      secret: "cS3AFvpd1DLz7C0VW5OVmJhTnXM0qwuOy4JFtulV"
+  - type: Generic
+    generic:
+      secret: "gUE5VbKpAmDhz0dYMx5VkZUGK31jQxgE2uOfazNv"
+  #postCommit:
+  #  script: jws test
