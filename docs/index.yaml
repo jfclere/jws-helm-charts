@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  jwschart:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2020-12-16T11:29:15.613704564+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 9ecf3c2fc8782fd50e7a2c59827437eb3f1a62cce1293bbc4e2dd72c46e8081f
+    name: jwschart
+    type: application
+    urls:
+    - https://jfclere.github.io/jws-helm-charts/jwschart-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-12-16T11:29:15.612915134+01:00"
