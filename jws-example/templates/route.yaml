@@ -1,9 +1,9 @@
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: "jws-example"
+  name: {{ .Values.applicationName | quote }}
 spec:
   host: 
   to:
     kind: Service
-    name: "jws-example"
+    name: {{ .Values.applicationName | quote }}

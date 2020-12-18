@@ -1,7 +1,8 @@
 {
   "type": "object",
   "required": [
-    "replicaCount"
+    "replicas",
+    "applicationName"
   ],
   "additionalProperties": true,
   "properties": {
@@ -10,6 +11,11 @@
       "description": "Define number of jws pods running",
       "title": "Replica Count",
       "type": "integer"
+    },
+    "applicationName": {
+      "type": "string",
+      "title": "ApplicationName",
+      "description": "Name of the application"
     },
     "test": {
       "type": "string",

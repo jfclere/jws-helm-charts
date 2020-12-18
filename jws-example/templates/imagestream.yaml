@@ -1,10 +1,10 @@
 kind: ImageStream
 apiVersion: image.openshift.io/v1
 metadata:
-  name: "jws-example"
+  name:  {{ .Values.applicationName | quote }}
 spec:
   tags:
     - name: latest
       from:
         kind: DockerImage
-        name: jws-ex
+        name: {{ .Values.applicationName }}

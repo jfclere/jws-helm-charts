@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: "jws-example"
+  name: {{ .Values.applicationName | quote }}
   annotations:
     description: Exposes and load balances the application pods
 spec:
@@ -10,4 +10,4 @@ spec:
     port: 8080
     targetPort: 8080
   selector:
-    name: "jws-example"
+    name: {{ .Values.applicationName | quote }}

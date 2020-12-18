@@ -1,7 +1,7 @@
 kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
-  name: "jws-example"
+  name: {{ .Values.applicationName | quote }}
   annotations:
     description: Defines how to build the application
 spec:
@@ -24,7 +24,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: jws-example:latest
+      name: {{ .Values.applicationName }}:latest
   triggers:
   - type: ImageChange
   - type: ConfigChange

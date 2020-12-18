@@ -1,7 +1,7 @@
 kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1
 metadata:
-  name: "jws-example"
+  name: {{ .Values.applicationName | quote }}
   annotations:
     description: Defines how to deploy the application server
     template.alpha.openshift.io/wait-for-ready: 'true'
@@ -13,24 +13,24 @@ spec:
     imageChangeParams:
       automatic: true
       containerNames:
-      - jws-example
+      - {{ .Values.applicationName }}
       from:
         kind: ImageStreamTag
-        name: "jws-example:latest"
+        name: "{{ .Values.applicationName }}:latest"
   - type: ConfigChange
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicas }}
   selector:
-    name: "jws-example"
+    name: {{ .Values.applicationName | quote }}
   template:
     metadata:
-      name: "jws-example"
+      name: {{ .Values.applicationName | quote }}
       labels:
-        name: "jws-example"
+        name: {{ .Values.applicationName | quote }}
         test: {{ template "test" . }}
         othertest: {{ .Values.test }}
     spec:
       containers:
-      - name: jws-example
+      - name: {{ .Values.applicationName }}
         image: " "
         ports:
         - containerPort: 8080

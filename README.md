@@ -7,7 +7,8 @@ See https://docs.openshift.com/container-platform/4.6/cli_reference/helm_cli/get
 # install a jws example
 create a yaml file for your values, like value.yaml:
 ```
-replicaCount: 4
+replicas: 4
+applicationName: test
 test: my_test
 ```
 Install the JWS helm charts and start your jws pods:
