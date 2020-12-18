@@ -18,7 +18,7 @@ spec:
         kind: ImageStreamTag
         name: "jws-example:latest"
   - type: ConfigChange
-  replicas: 2
+  replicas: {{ .Values.replicaCount }}
   selector:
     name: "jws-example"
   template:
@@ -26,6 +26,8 @@ spec:
       name: "jws-example"
       labels:
         name: "jws-example"
+        test: {{ template "test" . }}
+        othertest: {{ .Values.test }}
     spec:
       containers:
       - name: jws-example
