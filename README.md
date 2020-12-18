@@ -1,14 +1,6 @@
 # jws-helm-charts
-Helm charts for our JWS images
-To build a new version:
-```bash
-$ helm package jws-example
-$ mv jws-example-0.1.0.tgz docs
-$ helm repo index docs --url https://jfclere.github.com/jws-helm-charts
-$ git add docs
-$ git commit
-$ git push origin main
-```
+Helm charts for JWS images on Openshift.
+
 # install helm on your openshift cluster
 See https://docs.openshift.com/container-platform/4.6/cli_reference/helm_cli/getting-started-with-helm-on-openshift-container-platform.html
 
@@ -27,4 +19,20 @@ TEST SUITE: None
 # remove it
 ```bash
 ./helm uninstall jws-example-1608051834
+```
+# developping the chart
+If you are developing the chart you might start it directly from the repO:
+```bash
+./helm install jws-example --generate-name
+```
+
+# building a new version
+To build a new version do the following:
+```bash
+$ helm package jws-example
+$ mv jws-example-0.1.0.tgz docs
+$ helm repo index docs --url https://jfclere.github.com/jws-helm-charts
+$ git add docs
+$ git commit
+$ git push origin main
 ```
