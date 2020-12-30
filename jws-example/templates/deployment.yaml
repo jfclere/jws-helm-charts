@@ -48,7 +48,16 @@ spec:
             port: 8080
         env:
         - name: KUBERNETES_NAMESPACE
-          value: "jbosswebserver" 
+          value: "jbosswebserver"
+        - name: ENV_FILES
+          value: "/test/my-files/test.sh"
         resources:
           limits:
             memory: "512Mi"
+        volumeMounts:
+        - name: test-volume
+          mountPath: /test/my-files
+      volumes:
+        - name: test-volume
+          configMap:
+            name: test-config

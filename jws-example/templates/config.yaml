@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test-config
+data:
+  test.sh: |
+    FILE=`find /opt -name server.xml`
+    grep -q DNSMembershipProvider ${FILE}
+    if [ $? -ne 0 ]; then
+    sed -i '/cluster.html/a        <Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster">\n <Channel className="org.apache.catalina.tribes.group.GroupChannel">\n <Membership className="org.apache.catalina.tribes.membership.cloud.CloudMembershipService" membershipProviderClassName="org.apache.catalina.tribes.membership.cloud.DNSMembershipProvider"/>\n </Channel>\n </Cluster>\n' ${FILE}
+    fi
