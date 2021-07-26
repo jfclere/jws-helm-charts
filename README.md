@@ -13,7 +13,7 @@ test: my_test
 ```
 Install the JWS helm charts and start your jws pods:
 ```bash
-./helm repo add jwscharts https://jfclere.github.com/jws-helm-charts
+./helm repo add jwscharts https://jfclere.github.io/jws-helm-charts
 ./helm repo update
 ./helm install jwscharts/jws-example --generate-name -f ./value.yaml
 NAME: jws-example-1608051834
