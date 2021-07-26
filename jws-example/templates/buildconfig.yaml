@@ -19,6 +19,8 @@ spec:
         #name: registry.redhat.io/ubi8/jws-10:latest
         #name: quay.io/jfclere/jws-image:5.4
         name: registry.redhat.io/jboss-webserver-5/webserver55-openjdk11-tomcat9-openshift-rhel8
+      pullSecret:
+        name: "myregistrykey"
       #env:
       #- name: NPM_MIRROR
       #  value: 

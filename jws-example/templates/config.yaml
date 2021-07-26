@@ -7,5 +7,12 @@ data:
     FILE=`find /opt -name server.xml`
     grep -q DNSMembershipProvider ${FILE}
     if [ $? -ne 0 ]; then
-    sed -i '/cluster.html/a        <Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster">\n <Channel className="org.apache.catalina.tribes.group.GroupChannel">\n <Membership className="org.apache.catalina.tribes.membership.cloud.CloudMembershipService" membershipProviderClassName="org.apache.catalina.tribes.membership.cloud.DNSMembershipProvider"/>\n </Channel>\n </Cluster>\n' ${FILE}
+    sed -i '/cluster.html/a        <Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster" channelSendOptions="6">\n <Channel className="org.apache.catalina.tribes.group.GroupChannel">\n <Membership className="org.apache.catalina.tribes.membership.cloud.CloudMembershipService" membershipProviderClassName="org.apache.catalina.tribes.membership.cloud.DNSMembershipProvider"/>\n </Channel>\n </Cluster>\n' ${FILE}
     fi
+    FILE=`find /opt -name logging.properties`
+    mv ${FILE} ${FILE}.old
+    cp ${FILE}.old ${FILE}
+    cat >> ${FILE} << EOF
+    org.apache.catalina.ha.level=FINE
+    org.apache.catalina.tribes.level=FINE
+    EOF
