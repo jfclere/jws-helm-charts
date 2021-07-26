@@ -4,5 +4,8 @@
 
 replicas: 2
 applicationName: test
-
 test: jfc-super-test
+imageCredentials:
+  registry: registry.redhat.io
+  username: rhn_user
+  password: rhn_password
