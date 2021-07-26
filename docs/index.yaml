@@ -3,12 +3,12 @@ entries:
   jws-example:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2020-12-18T16:38:55.980101408+01:00"
+    created: "2021-07-26T11:16:17.891978201+02:00"
     description: A Helm chart for Kubernetes
-    digest: 0d5f8d7717358a5906b01acc0f54e24cf0a974e786e8cd5d964c21b868368413
+    digest: 4a6d06c46cc431a0f587288628b0f4951b7829c26145a45b46cd87de3e38553d
     name: jws-example
     type: application
     urls:
-    - https://jfclere.github.io/jws-helm-charts/jws-example-0.1.0.tgz
+    - https://jfclere.github.com/jws-helm-charts/jws-example-0.1.0.tgz
     version: 0.1.0
-generated: "2020-12-18T16:38:55.979659631+01:00"
+generated: "2021-07-26T11:16:17.891129199+02:00"
