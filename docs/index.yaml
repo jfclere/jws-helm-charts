@@ -9,6 +9,6 @@ entries:
     name: jws-example
     type: application
     urls:
-    - https://jfclere.github.com/jws-helm-charts/jws-example-0.1.0.tgz
+    - https://jfclere.github.io/jws-helm-charts/jws-example-0.1.0.tgz
     version: 0.1.0
 generated: "2020-12-18T16:38:55.979659631+01:00"
