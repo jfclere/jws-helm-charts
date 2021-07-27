@@ -28,7 +28,7 @@ TEST SUITE: None
 ./helm uninstall jws-example-1608051834
 ```
 # developping the chart
-If you are developing the chart you might start it directly from the repO:
+If you are developing the chart you might start it directly from the repo:
 ```bash
 ./helm install jws-example --generate-name
 ```
